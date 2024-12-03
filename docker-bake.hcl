@@ -93,13 +93,13 @@ target "default" {
         "linux/386",
         # FIXME: armv6 doesn't build in GitHub actions because we use a custom Go build
         #"linux/arm/v6",
-        "linux/arm/v7",
-        "linux/arm64",
+        #"linux/arm/v7",
+        #"linux/arm64",
     ] : [
         "linux/amd64",
         "linux/386",
-        "linux/arm/v7",
-        "linux/arm64"
+        #"linux/arm/v7",
+        #"linux/arm64"
     ]
     tags = distinct(flatten(
         [for pv in php_version(php-version) : flatten([
@@ -126,7 +126,7 @@ target "static-builder" {
     context = "./"
     platforms = [
         "linux/amd64",
-        "linux/arm64",
+        #"linux/arm64",
     ]
     tags = distinct(flatten([
         LATEST ? "${IMAGE_NAME}:static-builder" : "",
